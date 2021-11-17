@@ -33,7 +33,7 @@ parse_arguments() {
   # iterate through bash arguments
   for i; do
     case "$i" in
-      develop|feature/*|hotfix/*|fix/*|DexterOS*|v*)
+      develop|feature/*|hotfix/*|fix/*|DexterOS*|v*|i2cFixesForPy3)
         selectedbranch="$i"
         ;;
     esac
@@ -58,7 +58,7 @@ clone_scriptools(){
   sudo rm -rf $DEXTER_SCRIPT
   pushd $DEXTER_PATH > /dev/null
 
-  git clone --quiet --depth=1 -b $selectedbranch https://github.com/DexterInd/script_tools.git
+  git clone --quiet --depth=1 -b $selectedbranch https://github.com/chaosAD/script_tools.git
   cd $DEXTER_SCRIPT
   # useful in case we need it
   current_branch=$(git branch | grep \* | cut -d ' ' -f2-)
